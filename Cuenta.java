@@ -21,16 +21,19 @@ public abstract class Cuenta {
 
     public abstract void deposita(double valor);
 
-    public void saca(double valor) {
-        if(valor > this.saldo) {
+    public void saca(double valor) throws SaldoInsuficienteException{
+        
+        if(valor > this.saldo) 
+        {
         throw new SaldoInsuficienteException("El saldo es insufuciente no se puede realizar el retiro, intente con otra cantidad");
-        }else{
+        }
+        else
+        {
         this.saldo -= valor;
         }
+}
 
-    }
-
-    public boolean transfiere(double valor, Cuenta destino) {
+    public boolean transfiere(double valor, Cuenta destino) throws SaldoInsuficienteException{
         if(this.saldo >= valor) {
             this.saca(valor);
             destino.deposita(valor);
