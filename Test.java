@@ -1,5 +1,6 @@
 public class Test {
-public static void main(String[] args) {
-    System.out.println("Hola que pasa");   
+public static void main(String[] args)
+{
+    Cuenta test = new CuentaAhorros(1,2);
 }
 }
