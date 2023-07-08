@@ -12,10 +12,13 @@ public abstract class Cuenta {
     }
 
     public Cuenta( int agencia, int numero) {
+        if (agencia < 0 || numero <0){
+
+            throw new IllegalArgumentException("La agencio y/o el numero son invalidos");
+        }
         this.agencia = agencia;
         this.numero = numero;
         System.out.println("Estoy creando una cuenta " + this.numero);
-
         Cuenta.total ++;
     }
 

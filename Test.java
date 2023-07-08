@@ -1,7 +1,7 @@
 public class Test {
 public static void main(String[] args) 
 {
-    Cuenta test = new CuentaAhorros(1,2);
+    Cuenta test = new CuentaAhorros(1,9);
     test.deposita(100);
     try 
     {
