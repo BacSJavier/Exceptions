@@ -1,3 +1,5 @@
+package src.main.java.com.jb.javaexcepcions.models;
+
 public abstract class Cuenta {
 
     protected double saldo;

@@ -1,3 +1,5 @@
+package src.main.java.com.jb.javaexcepcions.models;
+
 public class AutenticacionUtil {
 
 	private String clave;
