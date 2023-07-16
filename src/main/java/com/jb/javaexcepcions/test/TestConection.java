@@ -1,3 +1,5 @@
+
+import src.main.java.com.jb.javaexcepcions.models.Conection;
 public class TestConection {
     public static void main(String[] args) throws Exception {
         /*OPCION 1 

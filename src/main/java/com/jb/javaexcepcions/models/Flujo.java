@@ -1,3 +1,5 @@
+package src.main.java.com.jb.javaexcepcions.models;
+
 public class Flujo {
     public static void main(String[] args) {
         System.out.println("Inicio del maain");
