@@ -11,33 +11,42 @@ public abstract class Cuenta {
 
     }
 
-    public Cuenta( int agencia, int numero) {
-        if (agencia < 0 || numero <0){
+    /**
+     * Este es el contructor de cuenta con comprobacion que la agencia y numero sean
+     * validos
+     * 
+     * @param agencia
+     * @param numero
+     */
+    public Cuenta(int agencia, int numero) {
+        if (agencia < 0 || numero < 0) {
 
             throw new IllegalArgumentException("La agencio y/o el numero son invalidos");
         }
         this.agencia = agencia;
         this.numero = numero;
         System.out.println("Estoy creando una cuenta " + this.numero);
-        Cuenta.total ++;
+        Cuenta.total++;
     }
 
     public abstract void deposita(double valor);
+/**
+ * Metodo para retirar dinero de cuentas
+ * @param valor
+ * @throws SaldoInsuficienteException
+ */
+    public void saca(double valor) throws SaldoInsuficienteException {
 
-    public void saca(double valor) throws SaldoInsuficienteException{
-        
-        if(valor > this.saldo) 
-        {
-        throw new SaldoInsuficienteException("El saldo es insufuciente no se puede realizar el retiro, intente con otra cantidad");
+        if (valor > this.saldo) {
+            throw new SaldoInsuficienteException(
+                    "El saldo es insufuciente no se puede realizar el retiro, intente con otra cantidad");
+        } else {
+            this.saldo -= valor;
         }
-        else
-        {
-        this.saldo -= valor;
-        }
-}
+    }
 
-    public boolean transfiere(double valor, Cuenta destino) throws SaldoInsuficienteException{
-        if(this.saldo >= valor) {
+    public boolean transfiere(double valor, Cuenta destino) throws SaldoInsuficienteException {
+        if (this.saldo >= valor) {
             this.saca(valor);
             destino.deposita(valor);
             return true;
